@@ -1,0 +1,15 @@
+Azure AD tenant
+Azure AD setup
+Access to Prod Tenant
+
+Provisioned 1 per region:
+	Storage Account
+	Kubernetes Service
+	Azure Postgres Flex Server
+	Azure Cache for Redis
+	Azure Container Registry
+	Data Bricks
+    (https://towardsdatascience.com/creating-azure-databricks-with-bicep-and-azure-devops-yaml-pipelines-4bf85be30cc7)
+	App Service/loganalytics/app service plan:
+	https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/web-app-loganalytics/main.bicep
+	

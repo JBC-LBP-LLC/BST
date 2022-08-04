@@ -1,0 +1,33 @@
+trigger:
+  branches:
+    include: 
+    - master
+  paths:
+    include:
+    - 'Shared-Plans/large_deployment.bicep'
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: CopyFiles@2
+    displayName: 'Include deployment file in the artifact'
+    inputs:
+      SourceFolder: 'Shared-Plans/extra-large_deployment.bicep'
+      Contents: '*'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+  - task: CopyFiles@2
+    displayName: 'Include deployment file in the artifact'
+    inputs:
+      SourceFolder: 'Shared-Plans/xl-parameters.json'
+      Contents: '*'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact to Release'
+    inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
+    condition: succeededOrFailed()

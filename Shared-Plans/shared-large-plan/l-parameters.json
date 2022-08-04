@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resource_group_location": {
+      "value": "eastus"
+    },
+    "resource_group_name": {
+      "value": "resource group name"
+    },
+    "container_registry": {
+      "value": {
+        "containerRegistry_name": "containerRegistry_name",
+        "scope": "resource_group",
+        "containerRegistry_location": "eastus",
+        "resource_group_name": "resource_group_name",
+        "containerRegistry_sku": "Basic",
+        "containerRegistry_adminUserEnabled": "true",
+        "public_network_access": "Enabled",
+        "default_action": "Allow",
+        "ip_address": "ip_address",
+        "action": "Allow"
+      }
+    },
+    "kubernetes_service": {
+      "value": {
+        "aks_name": "kubernetes_service",
+        "scope": "resource_group",
+        "aks_location": "eastus",
+        "aks_identity_type": "SystemAssigned",
+        "aks_kubernetesVersion": "1.13.4",
+        "aks_dnsPrefix": "kubernetes",
+        "aks_enableRBAC": "true",
+        "aks_agentPoolProfiles_name": "agentpool",
+        "aks_agentPoolProfiles_count": "1",
+        "aks_agentPoolProfiles_vmSize": "Standard_D2_v2",
+        "aks_agentPoolProfiles_osType": "Linux",
+        "aks_agentPoolProfiles_mode": "System",
+        "aks_adminUsername": "azureuser",
+        "aks_keyData": "REQUIRED" 
+      }
+    },
+    "postgres_flex_server": {
+      "value": {
+        "postgres_name": "postgres_flex_server",
+        "scope": "resource_group",
+        "postgres_location": "eastus",
+        "postgres_tagName1": "value1",
+        "postgres_tagName2": "value2",
+        "postgres_sku_name": "FLEX",
+        "postgres_sku_tier": "Basic",
+        "postgres_administratorLogin": "azureuser",
+        "postgres_administratorLoginPassword": "REQUIRED",
+        "postgres_availabilityZone": "string",
+        "postgres_backupRetentionDays": "30",
+        "postgres_geoRedundantBackup": "Enabled",
+        "postgres_createMode": "Default",
+        "postgres_highAvailability_mode": "Disabled",
+        "postgres_highAvailability_standbyAvailabilityZone": "string",
+        "postgres_maintenanceWindow_customWindow": "string",
+        "postgres_maintenanceWindow_dayOfWeek": "1",
+        "postgres_maintenanceWindow_startHour": "1",
+        "postgres_maintenanceWindow_startMinute": "1",
+        "postgres_network_delegatedSubnetResourceId": "string",
+        "postgres_network_privateDnsZoneArmResourceId": "string",
+        "postgres_pointInTimeUTC": "string",
+        "postgres_sourceServerResourceId": "string",
+        "postgres_storageSizeGB": "32",
+        "postgres_version": "string" 
+      }
+    },
+    "data_bricks": {
+      "value": {
+        "databricksWorkspaceName": "databricksWorkspaceName",
+        "scope": "resource_group",
+        "data_bricks_location": "eastus",
+        "data_bricks_sku": "trial" 
+      }
+    },
+    "redis_cache": {
+      "value": {
+        "redisCache_name": "redis_cache",
+        "scope": "resource_group",
+        "redisCache_sku_name": "Basic",
+        "redisCache_sku_family": "C",
+        "redisCache_sku_capacity": "0" 
+      }
+    },
+    "storage_account": {
+      "value": {
+        "storage_name": "storage_account",
+        "scope": "resource_group",
+        "storage_location": "eastus",
+        "storage_kind": "StorageV2",
+        "storage_sku_name": "Premium_LRS" 
+      }
+    }
+  }
+}
